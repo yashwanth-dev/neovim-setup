@@ -26,12 +26,16 @@ vim.cmd [[
   let g:plug_url_format = 'https://github.com/%s'
   call plug#begin(stdpath('data') . '/plugged')
 
-  Plug 'hrsh7th/nvim-compe'
+  Plug 'tpope/vim-fugitive'
+  Plug 'neovim/nvim-lspconfig'          
+  Plug 'hrsh7th/nvim-compe'             
   Plug 'jiangmiao/auto-pairs'
   Plug 'morhetz/gruvbox'
+  Plug 'preservim/nerdtree'             
   Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['json'] }
   Plug 'luochen1990/rainbow'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'tpope/vim-dispatch'             
 
   call plug#end()
 ]]
@@ -45,9 +49,13 @@ vim.cmd("source ~/.config/nvim/colorscheme.vim")
 vim.g.rainbow_active = 1
 
 -- Require the plugin configuration files
+require("plugins.auto-pairs")
+require("plugins.clang_format")
+require("plugins.dispatch")
+require("plugins.lspconfig")
+require("plugins.nerd-tree")
 require("plugins.nvim-compe")
 require("plugins.prettier")
-require("plugins.auto-pairs")
 
 
 -- Enable Treesitter
